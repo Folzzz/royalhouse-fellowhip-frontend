@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal House || House Fellowship locater</title>
+    <!-- bulma css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.css" integrity="sha512-SI0aF82pT58nyOjCNfyeE2Y5/KHId8cLIX/1VYzdjTRs0HPNswsJR+aLQYSWpb88GDJieAgR4g1XWZvUROQv1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- leaflet librarymap -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+
+    <style>
+        .icon-remove, .icon-check {
+            display: none;
+        }
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+        }
+        #output {
+            max-width: 900px;
+        }
+    </style>
+</head>
+<body>
+    <section class="hero hero-body is-dark container">
+        <h1 class="title">RH House Fellowship Location</h1>
+        <h2 class="subtitle">Enter Your <strong>ADDRESS</strong> to get closest fellowship to you</h2>
+
+        <form id="zipForm">
+
+            <div class="field has-addons">
+                <!-- <label class="label">Postal Code</label> -->
+                <div class="control has-icons-left has-icons-right">
+                  <input class="input zip is-large is-success" type="text" placeholder="Your Address">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-map-pin"></i>
+                  </span>
+                  <span class="icon is-small is-right icon-check">
+                    <i class="fas fa-check"></i>
+                  </span>
+                  <span class="icon is-small is-right icon-remove">
+                    <i class="fas fa-remove"></i>
+                  </span>
+                </div>
+                <div class="control">
+                    <button type="submit" class="button is-success is-large">Find</button>
+                </div>
+            </div>
+        </form>
+    </section>
+    <br>
+    <div class="container my-5">
+        <div id="error-output" class=""></div>
+        <div class="is-flex-direction-row is-flex-wrap-wrap is-justify-content-center is-align-content-center">
+            <div id="output" class="container"></div>
+            <!-- <div class="is-relative is-flex-grow-2">
+                <div id="map"></div>
+            </div> -->
+        </div>
+    </div>
+
+    <!-- leaflet library -->
+    <script src="js/locationfinder.js"></script>
+</body>
+</html>
